@@ -7,6 +7,9 @@ RUN yum install -y wget gcc openssl-devel cairo cairo-devel cairomm-devel python
 RUN yum install -y https://download-ib01.fedoraproject.org/pub/epel/7/x86_64/Packages/e/epel-release-7-14.noarch.rpm
 RUN yum install -y python36-pip
 
+# Add a step to upgrade pip
+RUN pip3 install --upgrade pip
+
 # Copiar e instalar dependências do requirements.txt
 COPY requirements.txt /srv/
 RUN pip3 install -r /srv/requirements.txt
